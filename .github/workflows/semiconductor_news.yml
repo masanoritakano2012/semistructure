@@ -1,0 +1,80 @@
+name: 半導体ニュース自動投稿
+
+on:
+  # 手動実行
+  workflow_dispatch:
+    inputs:
+      article_file:
+        description: '投稿する記事ファイル名（articles/ready/内）'
+        required: true
+        type: string
+      status:
+        description: '投稿ステータス'
+        required: true
+        default: 'draft'
+        type: choice
+        options:
+          - draft
+          - publish
+
+  # articles/ready/ にファイルが追加されたら自動実行
+  push:
+    paths:
+      - 'articles/ready/**/*.html'
+
+jobs:
+  post-to-wordpress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 依存パッケージをインストール
+        run: pip install requests python-dotenv
+
+      - name: 投稿ファイルを特定（pushイベント時）
+        if: github.event_name == 'push'
+        id: find-file
+        run: |
+          # 追加されたHTMLファイルを取得
+          FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/ready/*.html' | head -1)
+          echo "file=$FILES" >> $GITHUB_OUTPUT
+          echo "投稿対象ファイル: $FILES"
+
+      - name: WordPressに投稿（手動実行時）
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        run: |
+          python scripts/post_to_wordpress.py \
+            --file "articles/ready/${{ github.event.inputs.article_file }}" \
+            --status "${{ github.event.inputs.status }}"
+
+      - name: WordPressに投稿（pushイベント時）
+        if: github.event_name == 'push' && steps.find-file.outputs.file != ''
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        run: |
+          python scripts/post_to_wordpress.py \
+            --file "${{ steps.find-file.outputs.file }}" \
+            --status "draft"
+
+      - name: ログをコミット
+        if: success()
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add logs/
+          git add articles/posted/
+          git diff --staged --quiet || git commit -m "投稿ログ更新 $(date '+%Y-%m-%d %H:%M')"
+          git push
