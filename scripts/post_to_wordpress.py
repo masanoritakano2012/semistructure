@@ -4,12 +4,25 @@ WordPress REST API 投稿スクリプト
 """
 
 import os
+import sys
 import json
 import csv
 import argparse
 import requests
+
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 from datetime import datetime
 from pathlib import Path
+
+# .envファイルが存在すれば読み込む
+_env_path = Path(__file__).parent.parent / ".env"
+if _env_path.exists():
+    for _line in _env_path.read_text(encoding="utf-8").splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
 
 # ===== 設定 =====
 WP_URL = os.getenv("WP_URL", "https://semistructure.com")
