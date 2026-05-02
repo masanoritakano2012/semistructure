@@ -1,7 +1,6 @@
 name: 半導体ニュース自動投稿
 
 on:
-  # 手動実行
   workflow_dispatch:
     inputs:
       article_file:
@@ -17,10 +16,12 @@ on:
           - draft
           - publish
 
-  # articles/ready/ にファイルが追加されたら自動実行
   push:
     paths:
       - 'articles/ready/**/*.html'
+
+permissions:
+  contents: write
 
 jobs:
   post-to-wordpress:
@@ -29,6 +30,8 @@ jobs:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pythonをセットアップ
         uses: actions/setup-python@v5
@@ -36,13 +39,12 @@ jobs:
           python-version: '3.11'
 
       - name: 依存パッケージをインストール
-        run: pip install requests python-dotenv
+        run: pip install requests
 
       - name: 投稿ファイルを特定（pushイベント時）
         if: github.event_name == 'push'
         id: find-file
         run: |
-          # 追加されたHTMLファイルを取得
           FILES=$(git diff --name-only HEAD~1 HEAD -- 'articles/ready/*.html' | head -1)
           echo "file=$FILES" >> $GITHUB_OUTPUT
           echo "投稿対象ファイル: $FILES"
@@ -74,7 +76,6 @@ jobs:
         run: |
           git config --local user.email "github-actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add logs/
-          git add articles/posted/
+          git add logs/ articles/posted/ || true
           git diff --staged --quiet || git commit -m "投稿ログ更新 $(date '+%Y-%m-%d %H:%M')"
           git push
