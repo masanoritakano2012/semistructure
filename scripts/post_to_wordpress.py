@@ -31,7 +31,18 @@ WP_PASSWORD = os.getenv("WP_PASSWORD")
 
 # アイキャッチ画像（共通）
 FEATURED_MEDIA_URL = "http://semistructure.com/wp-content/uploads/2026/05/semiconductor-news-thumbnail-template.jpg"
-FEATURED_MEDIA_ID = 100  # WordPressのメディアID
+FEATURED_MEDIA_ID_DEFAULT = 100
+FEATURED_MEDIA_ID_GLOSSARY = 139
+
+GLOSSARY_CATEGORIES = {
+    "半導体用語集",
+    "ビジネスモデル｜誰がどう稼ぐか",
+    "製造プロセス｜どう作るか",
+    "製品・デバイス｜何を作っているか",
+    "市場・投資｜市場がどう動くか",
+    "地政学｜国家がどう関わるか",
+    "装置・材料｜製造を支えるインフラ",
+}
 
 # カテゴリIDマッピング（WordPress管理画面で確認して更新）
 CATEGORY_MAP = {
@@ -105,13 +116,19 @@ def post_to_wordpress(title, slug, content, category_name, status="draft"):
     category_id = CATEGORY_MAP.get(category_name)
     categories = [category_id] if category_id else []
 
+    featured_media_id = (
+        FEATURED_MEDIA_ID_GLOSSARY
+        if category_name in GLOSSARY_CATEGORIES
+        else FEATURED_MEDIA_ID_DEFAULT
+    )
+
     payload = {
         "title": title,
         "slug": slug,
         "content": content,
         "status": status,  # 必ずdraft
         "categories": categories,
-        "featured_media": FEATURED_MEDIA_ID,
+        "featured_media": featured_media_id,
     }
 
     response = requests.post(
@@ -131,6 +148,8 @@ def move_to_posted(filepath):
     """記事ファイルをposted/フォルダに移動"""
     src = Path(filepath)
     dst = Path("articles/posted") / src.name
+    if dst.exists():
+        dst.unlink()
     src.rename(dst)
     print(f"✅ 移動完了: {dst}")
 
