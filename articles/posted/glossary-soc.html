@@ -1,0 +1,75 @@
+<!-- title: SoCとは｜「1チップに全部入れる」半導体設計の構造とスマホ・AI時代の進化 | slug: soc | category: 製品・デバイス｜何を作っているか -->
+
+<p><span class="swl-marker mark_yellow">結論：SoC（System on Chip）とは、CPU・GPU・メモリコントローラ・通信モジュールなど複数の機能を1枚のシリコンチップに集積した半導体だ。スマートフォンの心臓部として普及し、現在はAI推論用チップ・車載チップでも主流になっている。Appleのチップ内製化戦略の成功はSoC設計力の差別化が競争優位の源泉になることを世界に示した。</span></p>
+
+<h2>SoCとは何か｜基本定義</h2>
+<p>SoC（System on Chip）は、コンピュータシステムを構成する複数の機能コンポーネントを1枚のシリコンチップに集積した半導体デバイスだ。「システム・オン・チップ」という名の通り、かつては複数の個別チップが必要だった機能を1チップに統合する。</p>
+
+<p>典型的なスマートフォン向けSoCに含まれる機能は以下の通りだ。</p>
+<ul>
+<li><strong>CPU</strong>：メインの演算処理（8コア構成が一般的）</li>
+<li><strong>GPU</strong>：グラフィックス・AI演算処理</li>
+<li><strong>NPU（Neural Processing Unit）</strong>：AI推論に特化した演算ユニット</li>
+<li><strong>メモリコントローラ</strong>：DRAMとのデータやり取りを制御</li>
+<li><strong>モデム（5G/4G）</strong>：通信機能（一部SoCは外付け）</li>
+<li><strong>画像処理エンジン（ISP）</strong>：カメラ処理</li>
+<li><strong>セキュリティチップ</strong>：生体認証・暗号化</li>
+</ul>
+
+<p><span class="swl-marker mark_blue">SoCの最大のメリットは「統合によるメリット」だ。機能を1チップに集積することで、チップ間の通信遅延が激減し消費電力が大幅に低下する。スマートフォンのバッテリー持ちと処理性能を同時に実現できるのはSoC設計のおかげだ。</span></p>
+
+<h2>代表的なSoCと企業</h2>
+<table>
+<thead>
+<tr><th>企業</th><th>製品名</th><th>用途</th><th>製造委託先</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Apple</strong></td><td>A18 Pro・M4</td><td>iPhone・Mac</td><td>TSMC 3nm</td></tr>
+<tr><td><strong>Qualcomm</strong></td><td>Snapdragon 8 Elite</td><td>Android高端</td><td>TSMC 3nm</td></tr>
+<tr><td><strong>MediaTek</strong></td><td>Dimensity 9400</td><td>Android中高端</td><td>TSMC 3nm</td></tr>
+<tr><td><strong>Samsung</strong></td><td>Exynos 2500</td><td>Galaxy向け</td><td>Samsung 3nm</td></tr>
+<tr><td><strong>NVIDIA</strong></td><td>Tegra/Orin</td><td>車載・ロボット</td><td>TSMC</td></tr>
+</tbody>
+</table>
+
+<p><span class="swl-marker mark_yellow">Appleのチップ内製化戦略（Apple Silicon）の成功はSoC設計力が競争優位の核心になることを示した。M1チップの登場でAppleのMacはIntelのCPUに比べ性能・電力効率で圧倒的な差を見せつけた。「設計を自社でコントロールする」ことの戦略的価値を世界に知らしめた出来事だ。</span></p>
+
+<h2>AI時代のSoC｜NPUとエッジAI</h2>
+<p>スマートフォン・PC・車載機器でのAI処理（エッジAI）の普及により、SoCにNPU（Neural Processing Unit）を搭載することが標準になっている。</p>
+
+<p>エッジAIとは、クラウドではなく端末（エッジ）側でAI処理を行うことだ。プライバシー保護・低遅延・オフライン対応というメリットがあり、スマートフォン・自動運転・産業ロボットで急速に普及している。</p>
+
+<p><span class="swl-marker mark_blue">車載向けSoCは今後の最大成長市場の一つだ。自動運転に必要な画像認識・センサーフュージョン・経路計算を処理するAI SoCは、1台のEVあたり数万円〜数十万円規模の半導体が必要になる。NVIDIAのDrive Orin・Qualcommのスナップドラゴンライド・ルネサスのR-Carなどが競争している。</span></p>
+
+<h2>SoCとチップレットの関係</h2>
+<p>従来のSoCは全機能を1チップに集積するモノリシック設計だったが、チップレット技術の普及により「複数のチップレットをパッケージ内で組み合わせる擬似SoC」という設計手法も広がっている。AMDのRyzenシリーズがその代表例だ。</p>
+
+<h2>投資・M&A視点からの評価</h2>
+<p>SoCを投資・M&A視点で評価する際の核心は「設計IPとEDAツールの支配」だ。SoC設計にはARMのIPコア・Synopsys・CadenceのEDAツールが不可欠であり、これらを握る企業が半導体設計産業全体に影響力を持つ。</p>
+
+<p><span class="swl-marker mark_yellow">M&Aの観点では、SoCファブレス企業の買収は「設計チーム・特許・顧客関係」が評価の核心になる。車載SoC企業の買収は自動車メーカー・Tier1サプライヤーによる垂直統合の動きとして活発化しており、半導体M&Aの最注目領域の一つだ。</span></p>
+
+<h2>まとめ</h2>
+<ul>
+<li>SoC＝CPU・GPU・通信・AI処理など複数機能を1チップに集積した半導体</li>
+<li>スマートフォンの主役として普及。現在はAI・車載でも主流に</li>
+<li>AppleのM1/A18がSoC設計力の差別化が競争優位の核心であることを証明</li>
+<li>AI時代にNPU搭載が標準化。エッジAIの普及でSoC需要が拡大</li>
+<li>投資評価軸：設計IP・EDAツールの支配・車載SoC企業のM&A動向</li>
+</ul>
+
+<hr>
+<p>👉 関連用語：</p>
+<ul>
+<li><a href="https://semistructure.com/gpu/">GPUとは｜AIを動かす半導体の構造とNVIDIAの独占的地位</a></li>
+<li><a href="https://semistructure.com/fabless/">ファブレスとは｜自社工場を持たない半導体設計企業のビジネスモデル</a></li>
+<li><a href="https://semistructure.com/chiplet/">チップレットとは｜半導体設計の革命と経営・投資への影響</a></li>
+<li><a href="https://semistructure.com/ip-license/">IPライセンスとは｜ARM型ビジネスモデルが半導体産業を変える構造</a></li>
+</ul>
+<p>👉 関連記事：</p>
+<ul>
+<li><a href="https://semistructure.com/semiconductor-industry-structure1/">半導体業界の全体構造を経営・投資視点で読む</a></li>
+<li><a href="https://semistructure.com/tsmc-analysis/">TSMC企業分析｜ファウンドリ独占企業の収益構造と競争優位</a></li>
+</ul>
+<p>📊 より深いM&A・投資視点の分析はnoteで公開しています<br>→ <a href="https://note.com/medicalconsult/m/md4058153ec42" target="_blank">半導体業界動向マガジン（高野聖義）</a></p>
+<p>🏢 半導体業界へのM&A・参入・コンサルティングをご検討の方<br>→ <a href="/contact">初回相談無料｜テックメディックス総研株式会社</a></p>
