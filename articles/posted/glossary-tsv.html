@@ -1,0 +1,71 @@
+<!-- title: TSVとは｜HBMとCoWoSを支えるシリコン貫通電極の構造と製造難易度 | slug: tsv | category: 製造プロセス｜どう作るか -->
+
+<p><span class="swl-marker mark_yellow">結論：TSV（Through Silicon Via：シリコン貫通電極）は、シリコンダイに縦方向の貫通孔を形成し、導電材料を充填することでチップ間を垂直接続する技術だ。HBMの多層積層とCoWoSの先端パッケージングに不可欠であり、AI半導体の性能を実現する核心技術の一つだ。製造難易度が極めて高く、この技術を持つ企業が先端パッケージング市場での競争優位を持つ。</span></p>
+
+<h2>TSVとは何か｜基本定義</h2>
+<p>TSV（Through Silicon Via）は、半導体チップ（シリコンダイ）に縦方向の貫通孔（ビア）を形成し、銅などの導電材料を充填することで、チップを垂直方向に電気接続する技術だ。</p>
+
+<p>従来の半導体パッケージでは、チップ間の電気接続はワイヤーボンディング（金属細線でつなぐ）またはフリップチップ（バンプで接続）という方法が主流だった。TSVはこれらより接続距離が桁違いに短いため、データ転送速度の向上と消費電力削減を実現できる。</p>
+
+<p><span class="swl-marker mark_blue">HBMの性能の核心はTSVにある。HBMは複数のDRAMダイをTSVで縦方向に接続し、超高速・超広帯域のデータ転送を実現する。NVIDIAのH100がAI処理で圧倒的な性能を発揮できる理由の一つが、HBMのTSVによる超高速メモリアクセスだ。</span></p>
+
+<h2>TSVの製造工程</h2>
+<p>TSVの製造は極めて複雑で難易度が高い。主な工程は以下の通りだ。</p>
+<ol>
+<li><strong>ビア形成</strong>：ドライエッチングで数マイクロメートル径の貫通孔を形成</li>
+<li><strong>絶縁膜形成</strong>：孔の内壁にCVDで絶縁膜を形成（銅と基板の絶縁）</li>
+<li><strong>シード層形成</strong>：電気めっきのための銅シード層をPVDで形成</li>
+<li><strong>銅めっき</strong>：孔全体に銅を充填（電解めっき）</li>
+<li><strong>CMP研磨</strong>：表面の余分な銅を化学機械研磨で除去</li>
+<li><strong>ウェハ薄化</strong>：バックグラインドでウェハを薄く削る（30マイクロメートル以下）</li>
+</ol>
+
+<p><span class="swl-marker mark_yellow">特にウェハ薄化（バックグラインド）は難易度が高い。HBMの積層には30マイクロメートル以下（髪の毛の直径の約1/3）という極限の薄さが求められる。この薄化工程で世界トップシェアを持つのが日本のディスコ（6146）であり、HBM需要急拡大の最大受益企業の一つだ。</span></p>
+
+<h2>TSVが使われる主な製品</h2>
+<ul>
+<li><strong>HBM（高帯域幅メモリ）</strong>：DRAMダイを8〜12層積層。AI向けGPUに搭載</li>
+<li><strong>CoWoSのシリコンインターポーザー</strong>：GPUダイとHBMを接続するシリコン中間基板にTSVが形成される</li>
+<li><strong>3D IC（三次元集積回路）</strong>：ロジックチップとメモリを一体化した次世代パッケージ</li>
+<li><strong>イメージセンサー（裏面照射型）</strong>：ソニーのCMOSイメージセンサーにもTSVが使用</li>
+</ul>
+
+<h2>TSV製造に必要な装置・材料</h2>
+<p>TSV製造には以下の装置・材料が必要で、日本企業が重要なポジションを占める。</p>
+<ul>
+<li><strong>ドライエッチング装置（ビア形成）</strong>：Lam Research・東京エレクトロン</li>
+<li><strong>CVD装置（絶縁膜・シード層）</strong>：Applied Materials・東京エレクトロン</li>
+<li><strong>バックグラインド装置（ウェハ薄化）</strong>：ディスコ（世界首位）・東京精密</li>
+<li><strong>CMP装置（研磨）</strong>：Applied Materials・荏原製作所</li>
+<li><strong>研磨材（CMP用スラリー）</strong>：フジミインコーポレーテッド・CMC Materials</li>
+</ul>
+
+<h2>投資・M&A視点からの評価</h2>
+<p>TSVを投資・M&A視点で評価する際の核心は「HBM需要の拡大がTSV製造装置・材料への需要を直接押し上げる」という連動構造だ。特にウェハ薄化装置のディスコはHBM需要急拡大の最大受益企業の一つとして投資家から注目されている。</p>
+
+<p><span class="swl-marker mark_yellow">M&Aの観点では、TSV関連のプロセス技術・装置・材料を持つ企業は先端パッケージング市場の成長とともに戦略的価値が高まっている。ディスコ・東京精密のような精密加工装置メーカーへの注目度が上昇しているのもこの文脈からだ。</span></p>
+
+<h2>まとめ</h2>
+<ul>
+<li>TSV＝シリコンダイへの貫通孔に導電材料を充填してチップ間を垂直接続する技術</li>
+<li>HBMの多層積層とCoWoSの先端パッケージングに不可欠</li>
+<li>製造工程：ビア形成→絶縁膜→シード層→銅めっき→CMP→ウェハ薄化（30μm以下）</li>
+<li>ウェハ薄化装置ではディスコが世界首位。HBM需要急拡大の最大受益企業</li>
+<li>投資評価軸：HBM需要→TSV装置・材料需要増という連動構造</li>
+</ul>
+
+<hr>
+<p>👉 関連用語：</p>
+<ul>
+<li><a href="https://semistructure.com/hbm/">HBMとは｜AI半導体を支える高帯域幅メモリの構造と市場</a></li>
+<li><a href="https://semistructure.com/cowos/">CoWoSとは｜AI半導体を完成させる先端パッケージング技術</a></li>
+<li><a href="https://semistructure.com/etching/">エッチングとは｜半導体回路を削り出す工程の構造</a></li>
+<li><a href="https://semistructure.com/cvd-film-deposition/">CVD・成膜とは｜半導体の積み重ねを支える薄膜形成技術</a></li>
+</ul>
+<p>👉 関連記事：</p>
+<ul>
+<li><a href="https://semistructure.com/semiconductor-industry-structure1/">半導体業界の全体構造を経営・投資視点で読む</a></li>
+<li><a href="https://semistructure.com/tokyo-electron-analysis_1/">東京エレクトロンの強さを構造で読む</a></li>
+</ul>
+<p>📊 より深いM&A・投資視点の分析はnoteで公開しています<br>→ <a href="https://note.com/medicalconsult/m/md4058153ec42" target="_blank">半導体業界動向マガジン（高野聖義）</a></p>
+<p>🏢 半導体業界へのM&A・参入・コンサルティングをご検討の方<br>→ <a href="/contact">初回相談無料｜テックメディックス総研株式会社</a></p>
