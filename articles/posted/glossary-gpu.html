@@ -1,0 +1,85 @@
+<!-- title: GPUとは｜AIを動かす半導体の構造とNVIDIAの独占的地位を読む | slug: gpu | category: 製品・デバイス｜何を作っているか -->
+
+<p><span class="swl-marker mark_yellow">結論：GPU（Graphics Processing Unit）はもともと画像処理用に開発された半導体だが、AI・機械学習の計算処理に最適な並列演算能力を持つことからAI時代の中核チップとなった。NVIDIAがAI向けGPU市場で約80%のシェアを持ち、時価総額世界トップ3に入るほどの存在になっている。</span></p>
+
+<h2>GPUとは何か｜基本定義</h2>
+<p>GPU（Graphics Processing Unit）は、もともとゲームや映像の描画処理を高速化するために開発された半導体チップだ。CPUが少数の高性能コアで複雑な処理を順番に実行するのに対し、GPUは数千〜数万の小さなコアで大量の単純計算を並列実行するアーキテクチャを持つ。</p>
+
+<p><span class="swl-marker mark_blue">AI・機械学習の演算は「大量の行列計算を並列に実行する」という性質を持つため、GPUの並列演算能力と極めて相性が良い。2012年にGPUを使ったディープラーニング（AlexNet）が画像認識コンテストで圧勝したことが、AI×GPU時代の幕開けとなった。</span></p>
+
+<h2>CPUとGPUの違い</h2>
+<table>
+<thead>
+<tr><th>比較項目</th><th>CPU</th><th>GPU</th></tr>
+</thead>
+<tbody>
+<tr><td>コア数</td><td>数個〜数十個</td><td>数千〜数万個</td></tr>
+<tr><td>得意な処理</td><td>複雑な逐次処理</td><td>単純な並列処理</td></tr>
+<tr><td>AI処理</td><td>苦手</td><td>極めて得意</td></tr>
+<tr><td>代表製品</td><td>Intel Core、AMD Ryzen</td><td>NVIDIA H100、AMD MI300</td></tr>
+<tr><td>消費電力</td><td>比較的低い</td><td>非常に高い（H100は700W）</td></tr>
+</tbody>
+</table>
+
+<h2>AI向けGPUの構造｜H100を例に</h2>
+<p>NVIDIAのH100（Hopper世代）を例にAI向けGPUの構造を理解しよう。</p>
+<ul>
+<li><strong>GPUダイ</strong>：TSMCの4nmプロセスで製造。約800億トランジスタ</li>
+<li><strong>HBM3メモリ</strong>：80GB。SK hynixが主要サプライヤー</li>
+<li><strong>CoWoSパッケージング</strong>：TSMCがGPUダイとHBMを接続</li>
+<li><strong>価格</strong>：1枚約400〜500万円</li>
+<li><strong>用途</strong>：ChatGPT等の大規模言語モデルの学習・推論</li>
+</ul>
+
+<p><span class="swl-marker mark_yellow">H100は「NVIDIAが設計、TSMCが製造、SK hynixがHBMを供給、TSMCがCoWoSで接続」という複数企業の連携で成立している。AI向けGPUはサプライチェーン全体を理解してはじめて正確に評価できる製品だ。</span></p>
+
+<h2>NVIDIAの独占的地位</h2>
+<p>AI向けGPU市場でNVIDIAは約80%のシェアを持つ。この独占的地位を支える要因は技術だけではない。</p>
+
+<ul>
+<li><strong>CUDA</strong>：NVIDIAが開発したGPUプログラミング環境。AI研究者・エンジニアの間で標準として定着しており、膨大なソフトウェア資産が蓄積されている</li>
+<li><strong>エコシステム</strong>：PyTorch・TensorFlowなど主要AIフレームワークがNVIDIA GPUに最適化されている</li>
+<li><strong>NVLink</strong>：複数のGPUを高速接続する独自技術。大規模AI学習に不可欠</li>
+</ul>
+
+<p><span class="swl-marker mark_blue">CUDAの存在がNVIDIAの最大の参入障壁だ。競合（AMD・Intel）がより高性能なGPUを出しても、CUDAエコシステムへの依存からユーザーがNVIDIAを離れにくい構造になっている。これはARMのエコシステム支配と同様の「ソフトウェアによるハードウェアのロックイン」だ。</span></p>
+
+<h2>GPUの競合と今後の競争</h2>
+<p>NVIDIAの独占に挑む競合は複数存在する。</p>
+<ul>
+<li><strong>AMD MI300X</strong>：HBM3容量でH100を上回る製品を投入</li>
+<li><strong>Google TPU</strong>：自社AI処理に特化したカスタムチップ</li>
+<li><strong>Amazon Trainium</strong>：AWS向け機械学習チップ</li>
+<li><strong>Intel Gaudi</strong>：AI向けアクセラレーター</li>
+</ul>
+
+<p>しかしCUDAエコシステムの厚さからNVIDIAの優位性はしばらく続くとみられている。</p>
+
+<h2>投資・M&A視点からの評価</h2>
+<p>GPUを投資視点で評価する際の核心は「NVIDIAのサプライチェーン全体への波及」だ。NVIDIA株への直接投資に加え、TSMC・SK hynix・CoWoSパッケージング材料・ディスコ（ウェハ薄化）など、GPU製造サプライチェーン上の企業への投資が有効な戦略になる。</p>
+
+<p><span class="swl-marker mark_yellow">M&Aの観点では、NVIDIAが2020年にARMの買収を試みた（規制当局により阻止）ように、GPU企業はソフトウェア・IP・補完技術の取得に向けた買収を積極化している。AI時代のGPU競争は「チップ単体」ではなく「エコシステム全体」の競争になっている。</span></p>
+
+<h2>まとめ</h2>
+<ul>
+<li>GPU＝並列演算に特化した半導体。AI・機械学習の中核チップとして不可欠な存在に</li>
+<li>NVIDIAがAI向けGPU市場で約80%のシェアを独占</li>
+<li>CUDAというソフトウェアエコシステムがNVIDIAの最大の参入障壁</li>
+<li>H100はTSMC（製造）・SK hynix（HBM）・TSMCのCoWoS（接続）の連携で成立</li>
+<li>投資評価軸：NVIDIAのサプライチェーン全体（TSMC・SK hynix・日本装置・材料メーカー）</li>
+</ul>
+
+<hr>
+<p>👉 関連用語：</p>
+<ul>
+<li><a href="https://semistructure.com/hbm/">HBMとは｜AI半導体を支える高帯域幅メモリの構造と市場</a></li>
+<li><a href="https://semistructure.com/cowos/">CoWoSとは｜AI半導体を完成させる先端パッケージング技術</a></li>
+<li><a href="https://semistructure.com/fabless/">ファブレスとは｜自社工場を持たない半導体設計企業のビジネスモデル</a></li>
+</ul>
+<p>👉 関連記事：</p>
+<ul>
+<li><a href="https://semistructure.com/tsmc-analysis/">TSMC企業分析｜ファウンドリ独占企業の収益構造と競争優位</a></li>
+<li><a href="https://semistructure.com/semiconductor-industry-structure1/">半導体業界の全体構造を経営・投資視点で読む</a></li>
+</ul>
+<p>📊 より深いM&A・投資視点の分析はnoteで公開しています<br>→ <a href="https://note.com/medicalconsult/m/md4058153ec42" target="_blank">半導体業界動向マガジン（高野聖義）</a></p>
+<p>🏢 半導体業界へのM&A・参入・コンサルティングをご検討の方<br>→ <a href="/contact">初回相談無料｜テックメディックス総研株式会社</a></p>
